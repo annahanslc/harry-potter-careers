@@ -1,8 +1,11 @@
 import streamlit as st
+import os
 from hp_bot import HPBot
 from openai import OpenAI
-# import base64
+import base64
+
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY_LFZ"])
+# client = OpenAI(api_key=os.environ["OPENAI_API_KEY_LFZ"])
 
 
 if 'bot' not in st.session_state:
@@ -24,7 +27,7 @@ def clear_chat():
   st.session_state['bot'].conversation = [{'role': 'developer', 'content': 'you are a career advisor at Hogwarts school of magic'}]
 
 def start_chat():
-  if len(st.session_state.bot.conversation) > 2:
+  if len(st.session_state.bot.conversation) > 1:
     clear_chat()
   update_inputs()
   update_advisor()
@@ -36,26 +39,36 @@ def start_chat():
   st.session_state['bot'].query(st.session_state.initiate)
 
 
-# def generate_icon():
-#   prompt= f"""
-#   Create a cute, cartoon emoji of a wizard"""
+def generate_cartoon():
+  prompt= f"""
+  Draw a cute cartoon depicting {st.session_state.first_name}
+  in the wizarding career as described in this conversation:
+  {st.session_state.bot.conversation[2:]}"""
 
-#   result = client.images.generate(
-#     model='gpt-image-1',
-#     prompt=prompt,
-#     size="1024x1024",
-#     background='transparent',
-#     quality='low'
-#   )
-#   image_base64 = result.data[0].b64_json
-#   image_bytes = base64.b64decode(image_base64)
-#   return image_bytes
+  result = client.images.generate(
+    model='gpt-image-1',
+    prompt=prompt,
+    size="1024x1024",
+    background='transparent',
+    quality='low'
+  )
+  image_base64 = result.data[0].b64_json
+  image_bytes = base64.b64decode(image_base64)
+  return image_bytes
 
 
 def query_bot():
-  with st.spinner(f"{st.session_state.advisor} is pondering over your message..."):
-    response = st.session_state['bot'].query(st.session_state.prompt)
-  return response
+  if len(st.session_state.bot.conversation) > 4:
+    with st.spinner(f"""
+                    Suddenly, {st.session_state.advisor} freezes, and shivers as if entering a trance...
+                    it looks like he is having a vision about your wizarding career... please wait..."""):
+      st.image(generate_cartoon(), width=400)
+      clear_chat()
+  else:
+    with st.spinner(f"{st.session_state.advisor} is pondering over your message..."):
+      response = st.session_state['bot'].query(st.session_state.prompt)
+    return response
+
 
 with st.sidebar:
   st.image('https://upload.wikimedia.org/wikipedia/commons/d/d4/Hogwarts-Crest.png?20210328175300', width=100)
