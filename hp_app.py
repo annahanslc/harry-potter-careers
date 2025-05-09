@@ -59,9 +59,10 @@ def generate_cartoon():
 
 def query_bot():
   if len(st.session_state.bot.conversation) > 4:
+    pronoun_dict = {'Severus Snape': 'he', 'Luna Lovegood': 'she', 'Rubeus Hagrid': 'he', 'Lord Voldemort': 'he', 'Dolores Umbridge': 'she'}
     with st.spinner(f"""
                     Suddenly, {st.session_state.advisor} freezes, and shivers as if entering a trance...
-                    it looks like he is having a vision about your wizarding career... please wait..."""):
+                    it looks like {pronoun_dict[st.session_state.advisor]} is having a vision about your wizarding career... please wait..."""):
       st.image(generate_cartoon(), width=400)
       clear_chat()
   else:
