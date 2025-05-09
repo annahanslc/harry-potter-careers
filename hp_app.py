@@ -1,9 +1,8 @@
 import streamlit as st
 from hp_bot import HPBot
 from openai import OpenAI
-import base64
-import os
-client = OpenAI(api_key=os.environ["OPENAI_API_KEY_LFZ"])
+# import base64
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY_LFZ"])
 
 
 if 'bot' not in st.session_state:
