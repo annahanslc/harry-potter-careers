@@ -45,6 +45,7 @@ The application is written in python and consists of 3 files:
 
 # Example Recommendations
 
+# Video Example
 
 # (Spoiler Alert!) Complete List of Careers:
 - LLM is unpredictable, and can choose to step outside of the list you provide.
