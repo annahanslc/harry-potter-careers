@@ -13,7 +13,7 @@ The Hogwarts Career Center is here to help you explore every enchanted opportuni
 
 ---
 
-# Streamlit App Project
+# 🧑‍💻 Streamlit App Project
 
 The Hogwarts Career Center is an interactive Streamlit app that uses OpenAI’s API to guide students through choosing a magical careers, and even generates a personalized image of them in that role. Built with object‑oriented design and session management, it implements AI integrations in a modern, user‑friendly UI.
 
@@ -26,7 +26,7 @@ The codebase is organized into three files:
   - requirements.txt: Lists the Python dependencies (Streamlit, OpenAI SDK, etc.) needed to run the application.
 
 
-# Implementation
+# 🪄 Implementation
 
 ### Creating a Bot Class 🤖
 
@@ -75,7 +75,7 @@ Below is an example of my lovely conversation with Professor Snape:
 <img width="865" alt="Screenshot 2025-05-09 at 11 23 50 AM" src="https://github.com/user-attachments/assets/d30d81c6-a06e-4f41-9aa4-09e018563519" />
 
 
-### Career Recommendation
+### Career Recommendation 🧑‍🍳
 
 Once a student and their chosen advisor have exchanged five messages, the next input automatically kicks off the career‑recommendation pipeline. Behind the scenes, Streamlit calls the generate_cartoon function, which first invokes get_career_rec. 
 
@@ -83,7 +83,7 @@ The get_career_rec method sends the entire conversation to the LLM model and sel
 
 The function outputs the recommended career along with a brief description of what this career entails.
 
-### Image Generation
+### Image Generation 🧞‍♂️
 
 The entire career recommendation along with the description of the position is then passed to an image generate model (gpt-image-1). Where the prompt says:
 
@@ -112,7 +112,7 @@ Example career recommendations:
 'Chocolate Frog Patisserie', 'Emergency Troll Removal Squad', 'Unicorn Tracker'
 
 
-# API Cost Breakdown
+# API Cost Breakdown 💸
 
 After 4 days of developing and testing the application, my OpenAI account accumulated a total cost of $0.46 in token usage. 
 
@@ -128,7 +128,7 @@ The below chart breaks down the token usage by all types of tokens, including al
 
 In the OpenAI API, caching means the service remembers the key/value activations for the unchanged prefix of the prompt so it doesn’t have to re‑compute them on every call. Caching both speeds up response time and cuts my input token costs by about half for those cached tokens. In my next steps I plan to implement caching to reduce cost. 
 
-# Video Examples
+# Video Examples 🎥
 
 Below are video of walkthroughs of the application. 
 
@@ -136,7 +136,7 @@ Below are video of walkthroughs of the application.
 [![Watch the video](https://img.youtube.com/vi/s7ZNJ63coJo/0.jpg)](https://www.youtube.com/embed/s7ZNJ63coJo)
 
 
-# References
+# References ⚡️
 
 - **Hogwarts Coat of Arms** by BassemImBeWiki (28 March 2021).  
   Licensed under [CC BY‑SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).  
