@@ -128,11 +128,13 @@ The below chart breaks down the token usage by all types of tokens, including al
 
 In the OpenAI API, caching means the service remembers the key/value activations for the unchanged prefix of the prompt so it doesn’t have to re‑compute them on every call. Caching both speeds up response time and cuts my input token costs by about half for those cached tokens. In my next steps I plan to implement caching to reduce cost. 
 
-# Video Example
+# Video Examples
 
+Below are video of walkthroughs of the application. 
 
+[![Watch the video](https://img.youtube.com/vi/HzTpOW9Dm68/0.jpg)](https://www.youtube.com/embed/HzTpOW9Dm68)
+[![Watch the video](https://img.youtube.com/vi/s7ZNJ63coJo/0.jpg)](https://www.youtube.com/embed/s7ZNJ63coJo)
 
-    
 
 # References
 
