@@ -57,13 +57,17 @@ def get_career_rec():
     model='gpt-4.1-nano',
     input=[{'role': 'developer',
            'content': f"""Based on this conversation: {st.session_state.bot.conversation[2:]}, pick the the wizarding career from the
-           following list of possible careers: {career_list} that best fits the student . Tell the student which career you recommend
-           and give a brief description. For example, if the recommended career is "Auror", then your response would be
-           "I recommend that you become an Auror - a highly trained wizard or witch employed by the Ministry of Magic’s
+           following list of possible careers: {career_list} that best fits the student . Tell the student which career you recommend,
+           with the career title in bolded text.
+
+           Then, give a brief description of the career. For example, if the recommended career is "Auror", then the description would be:
+           "An Auror is a highly trained wizard or witch employed by the Ministry of Magic’s
            Department of Magical Law Enforcement. Their duties include investigating and apprehending Dark wizards,
            dismantling dark artifacts, and protecting the magical community from threats. Aurors undergo rigorous training in advanced defensive and
            offensive spells—such as Stunning Charms, Disarming Charms, and Counter‑Curses—and must demonstrate exceptional skill, courage, and discretion in the field."
-           At the end of your recommendation ask the student to wait 1-2 minutes as their picture is being generated...
+
+           At the very end of your recommendation ask the student to wait 1-2 minutes as their picture is being generated... This should
+           be in bolded text as well.
            """}]
   )
   return response.output_text
