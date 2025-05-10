@@ -3,7 +3,7 @@
 
 # 🧙 Hogwarts Career Center Advisor Chat 
 
-As students at Hogwarts approach the end of their seven‑year journey at the ancient castle that they call home, it’s time to look beyond its halls and into the vast world of magical careers. Will you answer the call of the the prestigious, perilous Aurors? Or does your heart race to hear the roar of the crowd as you soar over a Quidditch stadium? Or perhaps dedicate the rest of your life to researching the mysteries of the beautiful, but elusive unicorns 🦄.
+As your seventh and final year at Hogwarts draws to a close, it’s time to step beyond these ancient halls and explore the extraordinary careers awaiting you in the wizarding world. Will you answer the call of the the prestigious, perilous Aurors? Or does your heart race to hear the roar of the crowd as you soar over a Quidditch stadium? Or perhaps dedicate the rest of your life to researching the mysteries of the beautiful, but elusive unicorns 🦄.
 
 The Hogwarts Career Center is here to help you explore every enchanted opportunity. Simply share a few details: your favorite classes, extracurricular activities, and you’ll be connected live with one of our in‑house advisors. Through a brief chat, they’ll help you uncover the vocation that best ignites your talents... and even offer a bonus glimpse at what your future might hold 🔮. 
 
@@ -15,11 +15,11 @@ The Hogwarts Career Center is here to help you explore every enchanted opportuni
 
 # Streamlit App Project
 
-The Hogwarts Career Center is an interactive Streamlit app that uses OpenAI’s API to guide students through choosing a magical careers, and even generates a personalized image of them in that role. Built with using object‑oriented programming and robust session management, it showcases full‑stack AI integration in a modern, user‑friendly UI.
+The Hogwarts Career Center is an interactive Streamlit app that uses OpenAI’s API to guide students through choosing a magical careers, and even generates a personalized image of them in that role. Built with object‑oriented design and session management, it implements AI integrations in a modern, user‑friendly UI.
 
 The codebase is organized into three files:
 
-  - hp_bot.py: Defines the HPBot class, which encapsulates all prompt management, conversation history, and API interactions.
+  - hp_bot.py: Defines the HPBot class, which encapsulates prompt management, conversation history, and API interactions.
 
   - hp_app.py: Implements the Streamlit front end—sidebar inputs, chat interface, and callbacks—to drive the user experience.
 
@@ -36,7 +36,7 @@ The HPBot class serves as a self‑contained chat agent that the Streamlit app c
 
 2. Sends the API Call - Through the get_response() method, it packages up the current conversation and sends it to the OpenAI model (gpt-4.1-mini), and returns a raw API response object. The query() method then extracts the text, appends it to the history, and returns the assistant’s reply.
 
-3. Sets the System Prompt - With set_system_prompt(), I can swap out or update the initial “developer” prompt (e.g. switching between different advisor characters). This lets changes the bot’s persona or instructions.
+3. Sets the System Prompt - With set_system_prompt(), swap out or update the initial “developer” prompt (e.g. switching between different advisor characters). This changes the bot’s persona or instructions.
 
 
 ### System Prompt & Personality 🕺
@@ -60,38 +60,38 @@ Use salutations that are friendly and informal, such as "Fancy a chat about yer 
 You speaks in a dreamy, aloof tone, often pausing mid-sentence with "...", get sidetracked and trail off. Be a little weird.
 You should mention odd or conspiratorial idea with total conviction.'''
 
-👽 **voldemort** = '''You are Lord Voldemort, a career advisor at Hogwarts School of Witchcraft and Wizardry from Harry Potter.
+👽 **lord_voldemort** = '''You are Lord Voldemort, a career advisor at Hogwarts School of Witchcraft and Wizardry from Harry Potter.
 You talk like Lord Voldemort, you are an evil, evil, dark wizard. Try to get students to join the Death Eaters.
 Speak regally, like you are the king.'''
 
-👵🏻 **umbridge** = '''You are Dolores Umbridge, a career advisor at Hogwarts School of Witchcraft and Wizardry from Harry Potter.
+👵🏻 **dolores_umbridge** = '''You are Dolores Umbridge, a career advisor at Hogwarts School of Witchcraft and Wizardry from Harry Potter.
 You talk like Dolores Umbridge, you love the min istry of the magic. You think everyone should obey the Minister of Magic.
 You talk passive-aggressively.'''
 
-To keep the advisor's responses concise, the system prompt tells the assistant to "Keep your response to fewer than 50 words."
+In order to keep the advisor's responses concise, the system prompt tells the assistant to "Keep your response to fewer than 50 words."
 
-Below is an example of my conversation with Professor Snape:
+Below is an example of my lovely conversation with Professor Snape:
 
 <img width="865" alt="Screenshot 2025-05-09 at 11 23 50 AM" src="https://github.com/user-attachments/assets/d30d81c6-a06e-4f41-9aa4-09e018563519" />
 
 
 ### Career Recommendation
 
-Once the user's conversation with the advisor reaches a length of 5, then the user's next chat message will prompt the generate_cartoon method, which immediately calls the get_career_rec method. 
+Once a student and their chosen advisor have exchanged five messages, the next input automatically kicks off the career‑recommendation pipeline. Behind the scenes, Streamlit calls the generate_cartoon function, which first invokes get_career_rec. 
 
-The get_career_rec method sends the entire conversation to the LLM model and selects the best matching career from a given list of possible careers. I chose to use the gpt-4.1-nano for this function because it is undertaking a simpler classification task, so I can save on token usage by downgrading to mini to nano for this particular api call. 
+The get_career_rec method sends the entire conversation to the LLM model and selects the best matching career from a given list of possible careers. To optimize for a lightweight classification job and control token usage, this step runs on the gpt-4.1-nano model. 
 
 The function outputs the recommended career along with a brief description of what this career entails.
 
 ### Image Generation
 
-The entire career recommendation along with the description of the position is then passed into an image generate model (gpt-image-1). Where the prompt is:
+The entire career recommendation along with the description of the position is then passed to an image generate model (gpt-image-1). Where the prompt says:
 
 >  Draw {st.session_state.first_name} as an {recommended_career} in a charming 3D animated style, clean, stylized character designs
 >  with expressive yet subtle facial animation, cinematic warm lighting, beautifully composed shots, high-quality polished textures,
 >  and a heartwarming tone. Emphasize storytelling through posture, expression, and framing."""
 
-The above prompt describes style similar to that of Pixar Animation Studios without direct referencing the trademarked brand.
+The above prompt describes a style similar to that of Pixar Animation Studios without directly referencing the trademarked brand.
 
 Example career recommendations:
 
@@ -101,23 +101,38 @@ Example career recommendations:
 <img src="https://github.com/user-attachments/assets/c5ab1077-b0ab-4d7f-b5bd-d9d0228a2a84" width="500">
 
 
-# Streamlit
-- Chatbot
-- Session state
-- Sidebar with inputs
+### (Spoiler Alert!) Complete List of Careers:
 
-# Cost
-- Chart of expenses
+'Auror', 'Magical Law Enforcement Squad', 'Wizard Judge / Clerk',
+'Minister of Magic', 'Professor at School of Magic', 'Healer at Hospital for Magical Maladies and Injuries',
+'Wandmaker', 'Broommaker', 'Potions Master', 'Butterbeer Brewer', 'Reporter for the Magical Newspaper',
+'Magical Creatures Photographer', 'Dragon Handler', 'Professional Quidditch Player'
+'SPEW (Society for the Promotion of Elfish Welfare) Lobbyist',
+'Bank Teller', 'Cauldron Quality Inspector', 'Translator of Ancient Magical Texts',
+'Chocolate Frog Patisserie', 'Emergency Troll Removal Squad', 'Unicorn Tracker'
 
-# Example Conversations
 
-# Example Recommendations
+# Cost 
+
+After 4 days of developing and testing the application, my OpenAI account accumulated a total cost of $0.46 in token usage. 
+
+<img width="572" alt="Screenshot 2025-05-10 at 1 47 05 PM" src="https://github.com/user-attachments/assets/4b535751-284c-4e25-85ac-960127852bc3" />
+
+The below bar chart shows which model used the most number of input tokens (gpt-4.1-mini):
+
+<img width="1009" alt="Screenshot 2025-05-10 at 2 04 30 PM" src="https://github.com/user-attachments/assets/0902cae4-4304-4ecb-906e-719538e57a77" />
+
+The below chart breaks down the token usage by all types of tokens, including all forms of input and output.
+
+<img width="377" alt="Screenshot 2025-05-10 at 2 02 16 PM" src="https://github.com/user-attachments/assets/badf6f23-5746-45b0-b52f-6cb543909a9c" />
+
+In the OpenAI API, caching means the service remembers the key/value activations for the unchanged prefix of the prompt so it doesn’t have to re‑compute them on every call. Caching both speeds up response time and cuts my input token costs by about half for those cached tokens. In my next steps I plan to implement caching to reduce cost. 
 
 # Video Example
 
-# (Spoiler Alert!) Complete List of Careers:
-- LLM is unpredictable, and can choose to step outside of the list you provide.
 
+
+    
 
 # References
 
