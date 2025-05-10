@@ -151,10 +151,10 @@ def show_messages():
     # can use the special chat message object to save the messages
     # each item is a dictionary
     if message['role'] == 'assistant':
-      icon_dict = {'Severus Snape': '🤨', 'Luna Lovegood': '👩🏼', 'Rubeus Hagrid': '🧔🏻‍♂️', 'Lord Voldemort': '👽', 'Dolores Umbridge': '🪶'}
+      icon_dict = {'Severus Snape': '🤨', 'Luna Lovegood': '👩🏼', 'Rubeus Hagrid': '🧔🏻‍♂️', 'Lord Voldemort': '👽', 'Dolores Umbridge': '👵'}
       icon = icon_dict[st.session_state.advisor]
     if message['role'] == 'user':
-      icon = '🪄'
+      icon = '🧑‍🎓'
     with st.chat_message(message['role'], avatar=icon):
       if message['role'] is not 'developer':
         # markdown will allow emoji and boldings, etc.
