@@ -112,19 +112,19 @@ Example career recommendations:
 'Chocolate Frog Patisserie', 'Emergency Troll Removal Squad', 'Unicorn Tracker'
 
 
-# Cost 
+# API Cost Breakdown
 
 After 4 days of developing and testing the application, my OpenAI account accumulated a total cost of $0.46 in token usage. 
 
-<img width="572" alt="Screenshot 2025-05-10 at 1 47 05 PM" src="https://github.com/user-attachments/assets/4b535751-284c-4e25-85ac-960127852bc3" />
+<img width="500" alt="Screenshot 2025-05-10 at 1 47 05 PM" src="https://github.com/user-attachments/assets/4b535751-284c-4e25-85ac-960127852bc3" />
 
-The below bar chart shows which model used the most number of input tokens (gpt-4.1-mini):
+The below bar chart shows the number of input tokens used by each model. The main chat conversation is powered by gpt-4.1-mini, so naturally the most number of tokens was used by inputs into the mini model. The second most tokens was used by the gpt-4.1-nano, which also took entire conversations as input in order to choose a career recommendation. The image model currently uses the fewest number of tokens, as there is only one input and one output per session. 
 
-<img width="1009" alt="Screenshot 2025-05-10 at 2 04 30 PM" src="https://github.com/user-attachments/assets/0902cae4-4304-4ecb-906e-719538e57a77" />
+<img width="700" alt="Screenshot 2025-05-10 at 2 04 30 PM" src="https://github.com/user-attachments/assets/0902cae4-4304-4ecb-906e-719538e57a77" />
 
 The below chart breaks down the token usage by all types of tokens, including all forms of input and output.
 
-<img width="377" alt="Screenshot 2025-05-10 at 2 02 16 PM" src="https://github.com/user-attachments/assets/badf6f23-5746-45b0-b52f-6cb543909a9c" />
+<img width="350" alt="Screenshot 2025-05-10 at 2 02 16 PM" src="https://github.com/user-attachments/assets/badf6f23-5746-45b0-b52f-6cb543909a9c" />
 
 In the OpenAI API, caching means the service remembers the key/value activations for the unchanged prefix of the prompt so it doesn’t have to re‑compute them on every call. Caching both speeds up response time and cuts my input token costs by about half for those cached tokens. In my next steps I plan to implement caching to reduce cost. 
 
@@ -138,7 +138,12 @@ Below are video of walkthroughs of the application.
 
 # References
 
-Harry Potter
-Wikipedia - Hogwarts logo
+- **Hogwarts Coat of Arms** by BassemImBeWiki (28 March 2021).  
+  Licensed under [CC BY‑SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).  
+  Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hogwarts-Crest.png)
+- **Harry Potter and the Wizarding World** by J.K. Rowling (1997 – 2007).  
+  Characters, names, and story elements © J.K. Rowling; trademarks of Warner Bros. Entertainment Inc.;  
+  Published by Bloomsbury Publishing (UK) and Scholastic Inc. (US).  
+  All rights reserved. Used under fair use for educational/non‑commercial purposes.
 
 <img width="1345" alt="Screenshot 2025-05-09 at 9 41 26 PM" src="https://github.com/user-attachments/assets/6757e7f7-4558-401b-953c-1814e42a7529" />
