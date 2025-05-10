@@ -34,7 +34,7 @@ The application is written in python and consists of 3 files:
 - 
 
 # Image Generation
-- Use LLM to determine the career first
+- Use LLM to classify career first
 - Pixar prompt
 - Avoiding trademark blocks
 
