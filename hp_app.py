@@ -140,7 +140,7 @@ with st.sidebar:
   st.button("Chat with Advisor", on_click=start_chat)
 
 #
-if st.session_state.image == True:
+if st.session_state.image:
   st.write('Thank you for visiting the Hogwarts Career Center. May your ambitions soar higher than a Nimbus 2000!')
 else:
   st.chat_input("Talk to the bot here", key="prompt", on_submit=query_bot)
