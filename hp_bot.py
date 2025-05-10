@@ -46,8 +46,8 @@ class HPBot():
       self.moderated = moderated
       self.moderation_model = moderation_model
       self.conversation = [{'role': 'developer', 'content': 'you are a career advisor at Hogwarts school of magic'}]
-      self.client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY_LFZ"])
-      # self.client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY_LFZ"])
+      # self.client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY_LFZ"])
+      self.client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY_LFZ"])
 
     def add_message_to_conversation(self, role, content):
       """add a message to the conversation."""
